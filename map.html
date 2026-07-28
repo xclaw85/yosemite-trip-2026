@@ -100,6 +100,7 @@ header a{color:#C9C2B4;font-size:12.5px;}
 .leaflet-popup-content b{font-family:"Zilla Slab",Georgia,serif;font-size:15px;display:block;margin-bottom:2px;}
 .leaflet-popup-content .pm{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#C9C2B4;display:block;margin-bottom:7px;}
 .leaflet-popup-content a{color:#EBC9A8;}
+.leaflet-popup-content .popdir{display:block;margin-top:9px;padding-top:8px;border-top:1px solid rgba(242,237,228,.18);font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:#C9C2B4;}
 .leaflet-container a.leaflet-popup-close-button{color:#C9C2B4;}
 .leaflet-bar a{background:var(--paper);color:var(--ink);border-bottom-color:var(--rule);}
 .leaflet-bar a:hover{background:var(--paper-2);}
@@ -209,13 +210,16 @@ function pin(s){
 
 STOPS.forEach(s => {
   const m = L.marker([s.lat, s.lon], {icon:pin(s), title:s.n, riseOnHover:true});
-  const g = `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lon}`;
-  const dir = `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}`;
+  const gdir = `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}`;
+  const adir = `https://maps.apple.com/?daddr=${s.lat},${s.lon}&dirflg=d`;
+  const qname = encodeURIComponent(s.n.replace(/&amp;/g,'&'));
   m.bindPopup(
     `<b>${s.i}. ${s.n}</b>` +
     `<span class="pm">${s.d} &middot; ${s.tm} &middot; ${s.ft.toLocaleString()} ft</span>` +
-    `${s.note}<br><br><a href="${dir}" target="_blank" rel="noopener">Directions &rarr;</a> &nbsp;&middot;&nbsp; ` +
-    `<a href="${g}" target="_blank" rel="noopener">View in Maps</a>`
+    `${s.note}` +
+    `<span class="popdir">Directions: ` +
+    `<a href="${adir}" target="_blank" rel="noopener">Apple Maps</a> &middot; ` +
+    `<a href="${gdir}" target="_blank" rel="noopener">Google Maps</a></span>`
   );
   markers[s.i] = m;
 });

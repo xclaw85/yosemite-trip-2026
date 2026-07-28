@@ -52,6 +52,8 @@ body{
   border-bottom:2px solid transparent;
 }
 .nav a:hover,.nav a:focus-visible{color:var(--routed);border-bottom-color:var(--ember);}
+.nav a.nav-emh{color:#E8A398;}
+.nav a.nav-emh:hover{color:#F4C9C0;border-bottom-color:var(--alarm);}
 
 /* ---------- hero ---------- */
 .hero{background:var(--sign);color:var(--routed);padding:44px 0 0;}
@@ -228,6 +230,7 @@ tr.total td{font-weight:600;border-top:1.5px solid var(--ink);}
 .leaflet-popup-content b{font-family:"Zilla Slab",Georgia,serif;font-size:15px;display:block;margin-bottom:2px;}
 .leaflet-popup-content .pm{font-family:"IBM Plex Mono",monospace;font-size:11px;color:#C9C2B4;display:block;margin-bottom:7px;}
 .leaflet-popup-content a{color:#EBC9A8;}
+.leaflet-popup-content .popdir{display:block;margin-top:9px;padding-top:8px;border-top:1px solid rgba(242,237,228,.18);font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:#C9C2B4;}
 .leaflet-container a.leaflet-popup-close-button{color:#C9C2B4;}
 .leaflet-bar a{background:var(--paper);color:var(--ink);border-bottom-color:var(--rule);}
 .leaflet-bar a:hover{background:var(--paper-2);}
@@ -272,6 +275,46 @@ tbody tr:first-child td.dayrow{padding-top:4px;}
 .check li{break-inside:avoid;padding:5px 0;font-size:14.5px;display:flex;gap:9px;align-items:flex-start;}
 .check input{margin-top:5px;accent-color:var(--pine);flex:0 0 auto;}
 
+/* ---------- emergency ---------- */
+.emsec{background:#2A1512;border-top:3px solid var(--alarm);}
+.emsec .wrap{padding-top:52px;padding-bottom:54px;}
+.em911{margin:22px 0 8px;}
+.em911-big{
+  display:block;background:var(--alarm);color:#fff;
+  padding:22px 24px;border-radius:4px;
+}
+.em911-big .lbl{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#F6D9D3;display:block;margin-bottom:6px;
+}
+.em911-big .num{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;
+  font-size:clamp(26px,4.5vw,38px);line-height:1.05;display:block;
+}
+.em911-big .sub{display:block;margin-top:10px;font-size:14px;line-height:1.5;color:#FBEAE6;max-width:70ch;}
+.emgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin:16px 0 8px;}
+.emcard{background:rgba(242,237,228,.05);padding:18px 20px 20px;}
+.emcard .et{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:#E8A398;display:block;margin-bottom:6px;
+}
+.emcard .ep{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:22px;
+  color:#fff;text-decoration:none;display:inline-block;margin-bottom:6px;
+  border-bottom:2px solid rgba(232,163,152,.5);
+}
+.emcard .ep:hover{border-bottom-color:#fff;}
+.emcard .ed{display:block;font-size:13px;line-height:1.5;color:#D9CFC6;}
+.emsec h3{color:var(--routed);margin-top:34px;}
+.emsec p{color:#D9CFC6;}
+.emsec a{color:#E8A398;}
+table.emtable td,table.emtable th{border-bottom-color:rgba(242,237,228,.14);color:#EDE7DE;}
+table.emtable thead th{color:#E8A398;border-bottom-color:rgba(232,163,152,.5);}
+.emtable .tdsub{font-size:12px;color:#B7A99E;}
+.emplan{background:rgba(242,237,228,.05);border-left:4px solid var(--alarm);padding:18px 22px;margin-top:26px;}
+.emplan ul{margin:6px 0 0;padding-left:20px;}
+.emplan li{color:#D9CFC6;font-size:14.5px;line-height:1.55;padding:4px 0;}
+
 /* ---------- footer ---------- */
 footer{background:var(--sign-deep);color:#BFB6A5;padding:38px 0 46px;font-size:13.5px;}
 footer a{color:var(--routed);}
@@ -311,6 +354,7 @@ footer h3{color:var(--routed);margin:0 0 12px;font-size:17px;}
     <a href="#itinerary">Schedule</a>
     <a href="#hikes">Hikes</a>
     <a href="#pack">Packing</a>
+    <a href="#emergency" class="nav-emh">Emergency</a>
   </div>
 </nav>
 
@@ -709,6 +753,110 @@ footer h3{color:var(--routed);margin:0 0 12px;font-size:17px;}
   </div>
 </section>
 
+<!-- ============ EMERGENCY ============ -->
+<section id="emergency" class="emsec">
+  <div class="wrap">
+    <p class="sec-label" style="color:#E8A398;">If something goes wrong</p>
+    <h2 class="sec" style="color:var(--routed);">Emergency</h2>
+    <p class="lede" style="color:#D9CFC6;">Cell service in the Valley is patchy to nonexistent. When you have a signal, <strong style="color:#fff;">911 texts often get through where calls fail.</strong> Screenshot this section before you lose service.</p>
+
+    <div class="em911">
+      <div class="em911-big">
+        <span class="lbl">Life-threatening emergency</span>
+        <span class="num">Call or TEXT 911</span>
+        <span class="sub">Medical, fire, search &amp; rescue, or crime. Tell dispatch you are in Yosemite Valley and give your nearest landmark or shuttle stop number.</span>
+      </div>
+    </div>
+
+    <div class="emgrid">
+      <div class="emcard">
+        <span class="et">Park dispatch (non-emergency)</span>
+        <a class="ep" href="tel:+12093791992">(209) 379-1992</a>
+        <span class="ed">Rangers, lost persons, wildlife problems, anything urgent that isn't 911.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Yosemite Medical Clinic</span>
+        <a class="ep" href="tel:+12093724637">(209) 372-4637</a>
+        <span class="ed">In Yosemite Valley, 9000 Ahwahnee Dr, between Yosemite Village and The Ahwahnee. Urgent care walk-ins, roughly weekday afternoons only. Not an ER. Out-of-state insurance = pay out of pocket. Call to confirm today's hours.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Curry Village front desk</span>
+        <a class="ep" href="tel:+12093728333">(209) 372-8333</a>
+        <span class="ed">Staffed 24 hours. First stop for a house phone, a lockout, or help reaching a ranger. From a tent, dial x8333.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">24-hour roadside assistance</span>
+        <a class="ep" href="tel:+12093721060">(209) 372-1060</a>
+        <span class="ed">Yosemite Village Garage. Dead battery, flat, lockout. Given the heat and the mountain grades, keep this one handy.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Park main line</span>
+        <a class="ep" href="tel:+12093720200">(209) 372-0200</a>
+        <span class="ed">General info and recorded conditions (press 1, then 1 for roads and weather).</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Poison control (national)</span>
+        <a class="ep" href="tel:+18002221222">1-800-222-1222</a>
+        <span class="ed">24/7. Snakebite, bad reaction, accidental ingestion.</span>
+      </div>
+    </div>
+
+    <h3 style="color:var(--routed);">Nearest hospitals with an ER</h3>
+    <p style="color:#D9CFC6;">The clinic in the Valley is <strong style="color:#fff;">not an emergency room.</strong> For anything serious, 911 dispatch will arrange transport and ask your hospital preference. All of these are 2 to 3+ hours away, so mountain response times are long. This is why you turn back early on a hike if someone is struggling.</p>
+    <div class="tw">
+      <table class="emtable">
+        <thead><tr><th>Hospital</th><th>Where</th><th class="num">Drive from Valley</th><th>Directions</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Community Regional Medical Center<br><span class="tdsub">Level I trauma, UCSF-Fresno</span></td>
+            <td>Fresno</td>
+            <td class="num">~2.5 hrs</td>
+            <td><a href="https://maps.apple.com/?daddr=Community+Regional+Medical+Center+Fresno&dirflg=d" target="_blank" rel="noopener">Apple</a> &middot; <a href="https://www.google.com/maps/dir/?api=1&destination=Community+Regional+Medical+Center+Fresno+CA" target="_blank" rel="noopener">Google</a></td>
+          </tr>
+          <tr>
+            <td>Saint Agnes Medical Center</td>
+            <td>Fresno</td>
+            <td class="num">~2.5 hrs</td>
+            <td><a href="https://maps.apple.com/?daddr=Saint+Agnes+Medical+Center+Fresno&dirflg=d" target="_blank" rel="noopener">Apple</a> &middot; <a href="https://www.google.com/maps/dir/?api=1&destination=Saint+Agnes+Medical+Center+Fresno+CA" target="_blank" rel="noopener">Google</a></td>
+          </tr>
+          <tr>
+            <td>Doctors Medical Center</td>
+            <td>Modesto</td>
+            <td class="num">~2.5 hrs</td>
+            <td><a href="https://maps.apple.com/?daddr=Doctors+Medical+Center+Modesto&dirflg=d" target="_blank" rel="noopener">Apple</a> &middot; <a href="https://www.google.com/maps/dir/?api=1&destination=Doctors+Medical+Center+Modesto+CA" target="_blank" rel="noopener">Google</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="color:var(--routed);">On the drive: Oakhurst has closer care</h3>
+    <p style="color:#D9CFC6;">Coming or going on Hwy 41, Oakhurst is about an hour from the Valley and has walk-in urgent care plus a small hospital nearby in Mariposa. For a sprain or a bad cut on the way home, this beats driving all the way to Fresno.</p>
+    <div class="emgrid">
+      <div class="emcard">
+        <span class="et">Oakhurst Urgent Care</span>
+        <a class="ep" href="tel:+15596832117">(559) 683-2117</a>
+        <span class="ed">48677 Victoria Ln, Oakhurst. Weekday daytime hours. Call first.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Mountain Crisis Services</span>
+        <a class="ep" href="tel:+18889662350">1-888-966-2350</a>
+        <span class="ed">24-hour, free, confidential. Support and transport for anyone in crisis.</span>
+      </div>
+    </div>
+
+    <div class="emplan">
+      <h3 style="color:var(--routed);margin-top:0;">Before you lose signal</h3>
+      <ul>
+        <li>Text one person back home your daily plan each morning. If you go quiet past a set time, they know roughly where to send help.</li>
+        <li>On any hike, agree on a turnaround time and honor it. Rescue from the Vernal Fall trail is slow and expensive.</li>
+        <li>In this heat, heat exhaustion is the likeliest problem: dizziness, nausea, headache, cramps. Get in shade, sip water, cool the neck and wrists. If someone stops sweating, gets confused, or passes out, that's heat stroke — <strong style="color:#fff;">call 911 immediately.</strong></li>
+        <li>Save these numbers to your phone now, and to the phones of both girls, while you still have service at home.</li>
+        <li>Note your tent cabin number and your parking area at check-in. You'll need them to direct anyone to you.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <footer id="info">
   <div class="wrap">
     <div class="fgrid">
@@ -720,6 +868,7 @@ footer h3{color:var(--routed);margin:0 0 12px;font-size:17px;}
           <li>Parking alerts: text <strong>ynptraffic</strong> to <strong>333111</strong></li>
           <li>Curry front desk: <strong>209-372-8333</strong></li>
           <li>Reservations: <strong>(888) 413-8869</strong></li>
+          <li style="margin-top:6px;"><a href="#emergency" style="color:#E8A398;font-weight:600;">↑ Emergency numbers</a></li>
         </ul>
       </div>
       <div>
@@ -822,13 +971,16 @@ function pin(s){
 
 STOPS.forEach(s => {
   const m = L.marker([s.lat, s.lon], {icon:pin(s), title:s.n, riseOnHover:true});
-  const g = `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lon}`;
-  const dir = `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}`;
+  const gdir = `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}`;
+  const adir = `https://maps.apple.com/?daddr=${s.lat},${s.lon}&dirflg=d`;
+  const qname = encodeURIComponent(s.n.replace(/&amp;/g,'&'));
   m.bindPopup(
     `<b>${s.i}. ${s.n}</b>` +
     `<span class="pm">${s.d} &middot; ${s.tm} &middot; ${s.ft.toLocaleString()} ft</span>` +
-    `${s.note}<br><br><a href="${dir}" target="_blank" rel="noopener">Directions &rarr;</a> &nbsp;&middot;&nbsp; ` +
-    `<a href="${g}" target="_blank" rel="noopener">View in Maps</a>`
+    `${s.note}` +
+    `<span class="popdir">Directions: ` +
+    `<a href="${adir}" target="_blank" rel="noopener">Apple Maps</a> &middot; ` +
+    `<a href="${gdir}" target="_blank" rel="noopener">Google Maps</a></span>`
   );
   markers[s.i] = m;
 });

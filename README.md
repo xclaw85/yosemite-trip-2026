@@ -120,6 +120,8 @@ Taxes total **13.7%** (12% occupancy + 1.5% TBID + 0.2% CA tourism). Third perso
 
 ## 🗺 All stops
 
+_Map links below open Google Maps. On the website, every map pin also has an Apple Maps directions link._
+
 | Stop | Coords | Elev. | Map |
 |---|---|---|---|
 | Tunnel View | 37.7158, -119.6775 | 4,400 ft | [↗](https://www.google.com/maps/search/?api=1&query=37.7157987,-119.6774827) |
@@ -236,6 +238,46 @@ Specific to an unheated canvas tent cabin.
 ### Bear rules, not optional
 
 No food, drinks, toiletries, or trash in the tent or the car. Everything goes in the bear locker. **Fines run up to $5,000** and vehicles used for food storage can be impounded. Cooking is prohibited anywhere in Curry Village.
+
+---
+
+## 🚨 Emergency
+
+**Cell service in the Valley is poor. When you have a signal, texting 911 often works when a call won't.** Screenshot this before you go, and save the numbers to all three phones while you still have service.
+
+### Life-threatening: call or TEXT 911
+Medical, fire, search & rescue, or crime. Tell dispatch you're in Yosemite Valley and give your nearest landmark or shuttle stop number.
+
+| Contact | Number | For |
+|---|---|---|
+| **911** | call or text | Anything life-threatening |
+| Park dispatch (non-emergency) | (209) 379-1992 | Rangers, lost persons, wildlife, urgent-but-not-911 |
+| Yosemite Medical Clinic | (209) 372-4637 | Urgent care in the Valley. Walk-ins roughly weekday afternoons. NOT an ER. Call to confirm hours. |
+| Curry Village front desk | (209) 372-8333 | 24 hrs. House phone, lockout, reaching a ranger. Dial x8333 from a tent. |
+| Roadside assistance | (209) 372-1060 | 24-hr, Yosemite Village Garage. Battery, flat, lockout. |
+| Park main line | (209) 372-0200 | Info + recorded conditions (press 1, then 1) |
+| Poison control | 1-800-222-1222 | 24/7 |
+
+### Nearest ER (the Valley clinic is not one)
+911 dispatch arranges transport and asks your hospital preference. All are 2.5+ hours out, so response times are long — turn back early on a hike if someone is struggling.
+
+| Hospital | City | Drive |
+|---|---|---|
+| Community Regional Medical Center (Level I trauma) | Fresno | ~2.5 hrs |
+| Saint Agnes Medical Center | Fresno | ~2.5 hrs |
+| Doctors Medical Center | Modesto | ~2.5 hrs |
+
+### Closer care on Hwy 41
+| Contact | Number | Notes |
+|---|---|---|
+| Oakhurst Urgent Care | (559) 683-2117 | ~1 hr from the Valley. Weekday daytime. Call first. |
+| Mountain Crisis Services | 1-888-966-2350 | 24-hr, free, confidential, can transport |
+
+### Before you lose signal
+- Text someone at home your plan each morning.
+- Agree on a hike turnaround time and honor it.
+- **Heat is the likeliest problem.** Dizzy/nauseous/cramping = heat exhaustion: shade, water, cool the neck. Confused, not sweating, or unconscious = heat stroke: **call 911 now.**
+- Note your tent cabin number and parking area at check-in.
 
 ---
 

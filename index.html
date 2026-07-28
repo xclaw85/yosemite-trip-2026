@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yosemite · August 3–6, 2026</title>
+<meta name="description" content="Trip plan for Yosemite National Park, August 3 to 6 2026. Curry Village tent cabin, costs, itinerary, hikes, and an interactive map.">
+<meta name="theme-color" content="#33261B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sign:#4A3728;
+  --sign-deep:#33261B;
+  --routed:#F2EDE4;
+  --paper:#E9E5DA;
+  --paper-2:#DFDACC;
+  --ink:#2A2520;
+  --granite:#7C7A73;
+  --pine:#2E4237;
+  --merced:#3F6E6C;
+  --ember:#B4552A;
+  --alarm:#8C1D18;
+  --rule:rgba(42,37,32,.14);
+  --wrap:1080px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:64px;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px;}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:900;
+  background:var(--sign-deep);border-bottom:2px solid #1F1611;
+}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:56px;overflow-x:auto;}
+.nav .brand{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:15px;
+  color:var(--routed);white-space:nowrap;flex:0 0 auto;
+}
+.nav a{
+  color:#C9C2B4;text-decoration:none;white-space:nowrap;
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;padding:4px 0;
+  border-bottom:2px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--routed);border-bottom-color:var(--ember);}
+.nav a.nav-emh{color:#E8A398;}
+.nav a.nav-emh:hover{color:#F4C9C0;border-bottom-color:var(--alarm);}
+
+/* ---------- hero ---------- */
+.hero{background:var(--sign);color:var(--routed);padding:44px 0 0;}
+.hero .eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+  letter-spacing:.18em;text-transform:uppercase;color:#BFB6A5;margin:0 0 10px;
+}
+.hero h1{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;
+  font-size:clamp(34px,6.2vw,62px);line-height:1.02;margin:0 0 6px;
+  letter-spacing:-.01em;
+}
+.hero .dates{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:500;
+  font-size:clamp(18px,2.6vw,26px);color:#D9D0BE;margin:0 0 26px;
+}
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  border-top:1px solid rgba(242,237,228,.2);
+}
+.fact{padding:16px 0 20px;border-right:1px solid rgba(242,237,228,.12);padding-right:14px;}
+.fact:last-child{border-right:0;}
+.fact dt{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:#A99E8B;margin:0 0 4px;
+}
+.fact dd{margin:0;font-size:17px;font-weight:600;font-family:"Zilla Slab",Georgia,serif;}
+
+/* ---------- sections ---------- */
+section{padding:52px 0;border-top:1px solid var(--rule);}
+section:first-of-type{border-top:0;}
+.sec-label{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--granite);margin:0 0 8px;
+}
+h2.sec{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;
+  font-size:clamp(25px,4vw,38px);line-height:1.12;margin:0 0 8px;letter-spacing:-.01em;
+}
+.lede{font-size:17px;color:#4A443C;max-width:70ch;margin:0 0 26px;}
+h3{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:600;font-size:20px;
+  margin:32px 0 10px;
+}
+p{max-width:74ch;}
+a{color:var(--pine);}
+a:hover{color:var(--ember);}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:16px 0 8px;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;min-width:440px;font-size:14.5px;}
+th,td{text-align:left;padding:9px 12px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top;}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--granite);font-weight:500;
+  border-bottom:1.5px solid var(--ink);
+}
+tbody tr:last-child td{border-bottom:0;}
+td.num,th.num{font-family:"IBM Plex Mono",monospace;}
+tr.total td{font-weight:600;border-top:1.5px solid var(--ink);}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:2px;margin:22px 0;}
+.card{background:var(--paper-2);padding:20px 20px 22px;}
+.card .n{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--granite);display:block;margin-bottom:7px;
+}
+.card h4{font-family:"Zilla Slab",Georgia,serif;font-size:18px;margin:0 0 7px;}
+.card p{font-size:14px;margin:0;line-height:1.55;}
+
+/* ---------- callouts ---------- */
+.note{
+  border-left:4px solid var(--ember);background:var(--paper-2);
+  padding:14px 18px;margin:22px 0;font-size:14.5px;
+}
+.note.pine{border-left-color:var(--pine);}
+.note p{margin:0;max-width:none;}
+.note p + p{margin-top:8px;}
+
+/* ---------- itinerary ---------- */
+.day{border-top:1px solid var(--rule);padding:26px 0;}
+.day:first-of-type{border-top:1.5px solid var(--ink);}
+.dayhdr{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:4px;}
+.dayhdr .num{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  color:var(--ember);text-transform:uppercase;
+}
+.dayhdr h3{margin:0;font-size:23px;}
+.dayhdr .sub{font-size:14px;color:var(--granite);}
+.sched{list-style:none;padding:0;margin:14px 0 0;}
+.sched li{display:flex;gap:16px;padding:7px 0;border-bottom:1px solid var(--rule);font-size:14.5px;}
+.sched li:last-child{border-bottom:0;}
+.sched time{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--granite);
+  flex:0 0 76px;padding-top:2px;
+}
+
+/* ---------- calendar cta ---------- */
+.calcta{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 10px;}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:600;font-size:14.5px;
+  padding:11px 20px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;
+  transition:background .12s ease,color .12s ease;
+}
+.btn:hover,.btn:focus-visible{background:var(--ink);color:var(--paper);}
+.btn-primary{background:var(--pine);border-color:var(--pine);color:var(--paper);}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.fineprint{font-size:13px;color:var(--granite);margin:0 0 8px;}
+a.atlink{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500;padding:1px 7px;margin-left:4px;border:1px solid var(--merced);border-radius:999px;color:var(--merced);text-decoration:none;white-space:nowrap;vertical-align:middle;}
+a.atlink:hover{background:var(--merced);color:#fff;}
+a.maplink{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;padding:1px 7px;margin:0 1px;border:1px solid var(--pine);border-radius:999px;color:var(--pine);text-decoration:none;white-space:nowrap;}
+a.maplink:hover{background:var(--pine);color:var(--paper);}
+td.dayrow{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:15.5px;
+  padding-top:22px;border-bottom:1.5px solid var(--ink);
+}
+tbody tr:first-child td.dayrow{padding-top:4px;}
+
+/* ---------- checklist ---------- */
+.check{list-style:none;padding:0;margin:14px 0 0;columns:2;column-gap:34px;}
+.check li{break-inside:avoid;padding:5px 0;font-size:14.5px;display:flex;gap:9px;align-items:flex-start;}
+.check input{margin-top:5px;accent-color:var(--pine);flex:0 0 auto;}
+
+/* ---------- alltrails ---------- */
+.atgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin:22px 0 14px;}
+.atcard{
+  display:flex;flex-direction:column;gap:5px;text-decoration:none;
+  background:var(--paper-2);padding:18px 20px 20px;color:var(--ink);
+  border-left:3px solid var(--merced);
+  transition:background .12s ease,transform .12s ease;
+}
+.atcard:hover,.atcard:focus-visible{background:#D5CFBF;color:var(--ink);}
+.atcard:focus-visible{outline:2px solid var(--merced);outline-offset:-2px;}
+.atday{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--granite);}
+.atname{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:18px;line-height:1.2;}
+.atstat{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#5A544B;}
+.atgo{margin-top:6px;font-size:12.5px;font-weight:600;color:var(--merced);}
+.atsub{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:20px;margin:34px 0 4px;color:var(--ink);}
+.atnote{font-size:13px;color:var(--granite);max-width:74ch;margin:6px 0 0;}
+
+/* ---------- tunnel view figure ---------- */
+.tvfig{margin:0 0 26px;}
+.tvfig img{
+  width:100%;height:auto;display:block;border-radius:14px;
+  box-shadow:0 6px 22px rgba(42,37,32,.18);
+}
+.tvfig figcaption{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--granite);
+  margin-top:9px;
+}
+
+/* ---------- reminders ---------- */
+.remsec{border-top:1px solid var(--rule);}
+.remlist{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:2px;}
+.remlist li{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--paper-2);padding:15px 18px;
+  border-left:3px solid var(--pine);
+}
+.remlist .ricon{font-size:19px;line-height:1.4;flex:0 0 auto;width:24px;text-align:center;}
+.remlist .rbody{font-size:14.5px;line-height:1.55;}
+.remlist .rbody strong{font-weight:600;}
+.remlist a{white-space:nowrap;}
+
+/* ---------- info & hours ---------- */
+.infosec{border-top:1px solid var(--rule);}
+.infosec .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;margin-top:22px;}
+.infosec .fgrid ul{list-style:none;padding:0;margin:0;}
+.infosec .fgrid li{padding:4px 0;font-size:14.5px;color:var(--ink);border-bottom:1px solid var(--rule);}
+.infosec .fgrid li:last-child{border-bottom:0;}
+.infosec .fgrid h3{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:18px;margin:0 0 10px;color:var(--ink);}
+.infosec .fgrid a{color:var(--pine);}
+.infosec .fgrid a:hover{color:var(--ember);}
+
+/* ---------- emergency ---------- */
+.emsec{background:#2A1512;border-top:3px solid var(--alarm);}
+.emsec .wrap{padding-top:52px;padding-bottom:54px;}
+.em911{margin:22px 0 8px;}
+.em911-big{
+  display:block;background:var(--alarm);color:#fff;
+  padding:22px 24px;border-radius:4px;
+}
+.em911-big .lbl{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#F6D9D3;display:block;margin-bottom:6px;
+}
+.em911-big .num{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;
+  font-size:clamp(26px,4.5vw,38px);line-height:1.05;display:block;
+}
+.em911-big .sub{display:block;margin-top:10px;font-size:14px;line-height:1.5;color:#FBEAE6;max-width:70ch;}
+.emgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin:16px 0 8px;}
+.emcard{background:rgba(242,237,228,.05);padding:18px 20px 20px;}
+.emcard .et{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:#E8A398;display:block;margin-bottom:6px;
+}
+.emcard .ep{
+  font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:22px;
+  color:#fff;text-decoration:none;display:inline-block;margin-bottom:6px;
+  border-bottom:2px solid rgba(232,163,152,.5);
+}
+.emcard .ep:hover{border-bottom-color:#fff;}
+.emcard .ed{display:block;font-size:13px;line-height:1.5;color:#D9CFC6;}
+.emsec h3{color:var(--routed);margin-top:34px;}
+.emsec p{color:#D9CFC6;}
+.emsec a{color:#E8A398;}
+table.emtable td,table.emtable th{border-bottom-color:rgba(242,237,228,.14);color:#EDE7DE;}
+table.emtable thead th{color:#E8A398;border-bottom-color:rgba(232,163,152,.5);}
+.emtable .tdsub{font-size:12px;color:#B7A99E;}
+.emplan{background:rgba(242,237,228,.05);border-left:4px solid var(--alarm);padding:18px 22px;margin-top:26px;}
+.emplan ul{margin:6px 0 0;padding-left:20px;}
+.emplan li{color:#D9CFC6;font-size:14.5px;line-height:1.55;padding:4px 0;}
+
+/* ---------- footer ---------- */
+footer{background:var(--sign-deep);color:#BFB6A5;padding:38px 0 46px;font-size:13.5px;}
+footer a{color:var(--routed);}
+footer h3{color:var(--routed);margin:0 0 12px;font-size:17px;}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;}
+.fgrid ul{list-style:none;padding:0;margin:0;}
+.fgrid li{padding:4px 0;}
+.colophon{
+  margin-top:32px;padding-top:18px;border-top:1px solid rgba(242,237,228,.16);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.7;color:#8F8676;
+}
+
+@media (max-width:860px){
+  .maprow{flex-direction:column;min-height:0;}
+  #map{min-height:56vh;flex:0 0 56vh;}
+  .maptop{padding:10px 16px;}
+  .daytab{font-size:12px;padding:5px 11px;}
+  .mapside{flex:1 1 auto;max-height:none;border-left:0;border-top:1px solid rgba(242,237,228,.14);}
+  .check{columns:1;}
+  .fact{border-right:0;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none !important;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <span class="brand">Yosemite ’26</span>
+    <a href="#reminders">Reminders</a>
+    <a href="#itinerary">Schedule</a>
+    <a href="#info-hours">Info</a>
+    <a href="#hikes">Hikes</a>
+    <a href="#alltrails">Trail links</a>
+    <a href="#pack">Packing</a>
+    <a href="#weather">Weather</a>
+    <a href="#budget">Budget</a>
+    <a href="#emergency" class="nav-emh">Emergency</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Yosemite National Park · California</p>
+    <h1>Three nights<br>under canvas</h1>
+    <p class="dates">Monday August 3 – Thursday August 6, 2026</p>
+    
+  </div>
+</header>
+
+<!-- ============ REMINDERS ============ -->
+<section id="reminders" class="remsec">
+  <div class="wrap">
+    <figure class="tvfig">
+      <img src="yosemite-valley-tunnel-view.jpg" alt="Annotated photo of Yosemite Valley from Tunnel View, labeling El Capitan, Half Dome, Sentinel Dome, Cathedral Rocks, Bridalveil Falls and the Four Mile Trail" loading="lazy">
+      <figcaption>Yosemite Valley from Tunnel View. Photo by Jason Curtis, Nov 15 2017.</figcaption>
+    </figure>
+    <p class="sec-label">Before you leave the car park</p>
+    <h2 class="sec">Key reminders</h2>
+    <ul class="remlist">
+      <li>
+        <span class="ricon" aria-hidden="true">⛽</span>
+        <span class="rbody"><strong>Fill up on gas in Oakhurst.</strong> There is no gas in Yosemite Valley. Gas is available at Wawona, but topping off beforehand is safest. <a href="https://www.nps.gov/yose/planyourvisit/driving.htm" target="_blank" rel="noopener">Yosemite fuel info ↗</a></span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🎟️</span>
+        <span class="rbody"><strong>Buy the Yosemite pass before leaving.</strong> A standard private-vehicle pass is $35 and lasts seven consecutive days. <a href="https://www.recreation.gov/sitepass/74296" target="_blank" rel="noopener">Buy the pass online ↗</a></span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🏕️</span>
+        <span class="rbody"><strong>Curry Village address:</strong> 9010 Curry Village Drive, Yosemite Valley, CA 95389. <a href="https://www.yosemite.com/places-to-stay/cabins/curry-village/" target="_blank" rel="noopener">Curry Village info ↗</a></span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🗺️</span>
+        <span class="rbody"><strong>Download Apple Maps offline.</strong> Search "Yosemite National Park" → tap the location → Download (or More → Download Map) → expand the area to include Fresno, Oakhurst, and Yosemite → Download. <a href="https://support.apple.com/en-us/105084" target="_blank" rel="noopener">Apple instructions ↗</a></span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🥾</span>
+        <span class="rbody"><strong>Download AllTrails offline.</strong> Open Yosemite National Park in AllTrails → tap Download at the bottom → confirm it appears under Saved → Parks. Full park downloads require AllTrails Plus or Peak. <a href="https://support.alltrails.com/hc/en-us/articles/37212750759956-Downloading-parks-for-offline-use" target="_blank" rel="noopener">AllTrails instructions ↗</a></span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🛒</span>
+        <span class="rbody"><strong>Buy groceries in Fresno</strong> before continuing toward Oakhurst and Yosemite. Groceries inside and near the park are limited and more expensive.</span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🚑</span>
+        <span class="rbody"><strong>Medical emergency:</strong> call <a href="tel:911">911</a>.</span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🔧</span>
+        <span class="rbody"><strong>Car trouble:</strong> AAA Roadside Assistance, <a href="tel:+18002224357">1-800-222-4357</a> (1-800-AAA-HELP). <a href="https://www.ace.aaa.com/content/ace-www/en/information/contact-us.html" target="_blank" rel="noopener">AAA contact info ↗</a></span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">💧</span>
+        <span class="rbody"><strong>Bring water, it's going to be hot.</strong> Carry at least 2 litres per person on any hike, and keep extra in the car.</span>
+      </li>
+      <li>
+        <span class="ricon" aria-hidden="true">🎉</span>
+        <span class="rbody"><strong>Have fun!</strong></span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE / CALENDAR ============ -->
+<section id="itinerary">
+  <div class="wrap">
+    <p class="sec-label">Schedule</p>
+    <h2 class="sec">Schedule</h2>
+    <p class="lede">All 17 stops for the trip, day by day. Cell service in Yosemite Valley is poor, so screenshot this before you go.</p>
+
+    <h3>Offline copy</h3>
+    <p><strong>Cell service in Yosemite Valley is poor to nonexistent.</strong> Your calendar app will show these events offline once synced, but screenshot this table too.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>When</th><th>What</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td colspan="3" class="dayrow">Monday, August 3 · Drive in</td></tr>
+          <tr><td class="num">5:30 AM</td><td>Depart Lake Arrowhead</td><td>Early start to clear the Central Valley before 105–113°F</td></tr>
+          <tr><td class="num">10:30 AM</td><td>Fresno: lunch + groceries</td><td>Last real supermarket. Cold food only, no cooking at Curry.</td></tr>
+          <tr><td class="num">12:30 PM</td><td>Oakhurst: final gas</td><td>No gas station exists in Yosemite Valley</td></tr>
+          <tr><td class="num">1:15 PM</td><td>South Entrance</td><td>30–90 min line. $35, card only.</td></tr>
+          <tr><td class="num">2:45 PM</td><td>Tunnel View</td><td>First look at the Valley</td></tr>
+          <tr><td class="num">4:00 PM</td><td>Check in, Curry Village <a class="maplink" href="https://maps.apple.com/?daddr=37.7384615,-119.5748224&dirflg=d" target="_blank" rel="noopener">Apple Maps</a> <a class="maplink" href="https://www.google.com/maps/dir/?api=1&destination=37.7384615,-119.5748224" target="_blank" rel="noopener">Google</a></td><td>Not a minute earlier. Long line. Bear locker immediately.</td></tr>
+          <tr><td class="num">6:00 PM</td><td>Dinner + Stoneman Meadow</td><td>Alpenglow on Half Dome, sunset ~8:10 PM</td></tr>
+
+          <tr><td colspan="3" class="dayrow">Tuesday, August 4 · Glacier Point Road</td></tr>
+          <tr><td class="num">7:30 AM</td><td>Leave for Glacier Point</td><td>60 mi round trip. Lot fills mid-morning.</td></tr>
+          <tr><td class="num">8:30 AM</td><td>Glacier Point</td><td>7,214 ft. No drinking water, bring your own.</td></tr>
+          <tr><td class="num">11:00 AM</td><td>Sentinel Dome</td><td>2.2 mi RT, ~400 ft, 360° summit at 8,127 ft</td></tr>
+          <tr><td class="num">1:30 PM</td><td>Taft Point &amp; the Fissures</td><td>2.2 mi RT. No railings. Keep well back.</td></tr>
+          <tr><td class="num">4:00 PM</td><td>Drive down, El Cap Meadow</td><td>Watch climbers on the wall</td></tr>
+
+          <tr><td colspan="3" class="dayrow">Wednesday, August 5 · Vernal Fall</td></tr>
+          <tr><td class="num">5:45 AM</td><td><strong>Vernal Fall via John Muir Trail</strong></td><td>5.4 mi RT, ~1,300 ft. Mist Trail is closed until 3:30 PM. 2L water each.</td></tr>
+          <tr><td class="num">12:30 PM</td><td>Merced River / Curry pool</td><td>Do not be in the tent between 1 and 6 PM</td></tr>
+          <tr><td class="num">5:30 PM</td><td>Bridalveil Fall + Cook's Meadow</td><td>Golden hour, both paved and easy</td></tr>
+
+          <tr><td colspan="3" class="dayrow">Thursday, August 6 · Home</td></tr>
+          <tr><td class="num">6:15 AM</td><td>Mirror Lake at sunrise</td><td>2 mi RT paved and shaded</td></tr>
+          <tr><td class="num">11:00 AM</td><td><strong>Check out</strong></td><td>Hard deadline. Late = charged a full extra night. Empty the bear locker.</td></tr>
+          <tr><td class="num">12:15 PM</td><td>Wawona Swinging Bridge</td><td>Swimming hole and lunch, on the route out</td></tr>
+          <tr><td class="num">1:30 PM</td><td>Mariposa Grove</td><td>Grizzly Giant Loop, 2 mi. Free shuttle from the Welcome Plaza.</td></tr>
+          <tr><td class="num">3:45 PM</td><td>Drive home</td><td>Gas in Oakhurst first. Home ~10:15 PM.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div></section>
+
+<!-- ============ INFO & HOURS ============ -->
+<section id="info-hours" class="infosec">
+  <div class="wrap">
+    <p class="sec-label">Reference</p>
+    <h2 class="sec">Live info &amp; Curry Village hours</h2>
+    <div class="fgrid">
+      <div>
+        <h3>Live info</h3>
+        <ul>
+          <li><a href="https://www.nps.gov/yose/planyourvisit/conditions.htm">Road &amp; trail conditions</a></li>
+          <li>Recorded line: <strong>209-372-0200</strong>, press 1 then 1</li>
+          <li>Parking alerts: text <strong>ynptraffic</strong> to <strong>333111</strong></li>
+          <li>Curry front desk: <strong>209-372-8333</strong></li>
+          <li>Reservations: <strong>(888) 413-8869</strong></li>
+          <li style="margin-top:6px;"><a href="#emergency" style="color:#E8A398;font-weight:600;">↑ Emergency numbers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Curry Village hours</h3>
+        <ul>
+          <li>Front desk · 24 hours</li>
+          <li>Coffee Corner · 6:00 AM – 2:00 PM</li>
+          <li>Seven Tents · 7–10 AM, 5:30–8:30 PM</li>
+          <li>Pizza Deck · 11:00 AM – 10:00 PM</li>
+          <li>Taqueria · 11:30 AM – 5:30 PM</li>
+          <li>Grocery &amp; gift · 8:00 AM – 9:00 PM</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Also</h3>
+        <ul>
+          <li>Shower house · 24 hours</li>
+          <li>Pool · 11:00 AM – 6:00 PM</li>
+          <li>Bike stand · 9:00 AM – 6:00 PM</li>
+          <li>Rafting · 10:00 AM – 4:00 PM</li>
+          <li>Quiet hours · 10:00 PM – 6:00 AM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HIKES ============ -->
+<section id="hikes">
+  <div class="wrap">
+    <p class="sec-label">Trails</p>
+    <h2 class="sec">Hike reference</h2>
+
+    <h3>Easy afternoon trio · Glacier Point Road</h3>
+    <p>Best option in this heat. All at 7,000 to 7,700 ft, which runs 10 to 15 degrees cooler than the Valley. Two trailheads, one afternoon.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Hike</th><th class="num">Distance</th><th class="num">Gain</th><th class="num">Time</th></tr></thead>
+        <tbody>
+          <tr><td>Glacier Point overlook</td><td class="num">0.6 mi RT, paved</td><td class="num">minimal</td><td class="num">30 min</td></tr>
+          <tr><td>Sentinel Dome</td><td class="num">2.2 mi RT</td><td class="num">~400 ft</td><td class="num">1.5 hrs</td></tr>
+          <tr><td>Taft Point &amp; the Fissures</td><td class="num">2.2 mi RT</td><td class="num">~250 ft</td><td class="num">1.5 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Easy afternoon trio · Valley floor</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Hike</th><th class="num">Distance</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Bridalveil Fall</td><td class="num">0.5 mi RT, paved</td><td>Still has flow in August</td></tr>
+          <tr><td>Mirror Lake</td><td class="num">2 mi RT, paved</td><td>Shaded along Tenaya Creek. Best straight-up Half Dome view in the park.</td></tr>
+          <tr><td>Cook's Meadow Loop</td><td class="num">1 mi, flat boardwalk</td><td>Do it at golden hour</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Chain them with a swim at Swinging Bridge or Sentinel Beach.</p>
+    <div class="note">
+      <p><strong>Skip Lower Yosemite Fall.</strong> It is the most popular easy walk in the park, but Yosemite Falls is typically a trickle or bone dry by early August.</p>
+    </div>
+
+    <h3>Mariposa Grove · on the drive home</h3>
+    <p>Mariposa Grove Road is closed to private vehicles. Park at the Welcome Plaza and ride the free shuttle, roughly 8 AM to 7 PM. Confirm hours on arrival.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Trail</th><th class="num">Distance</th><th class="num">Gain</th><th class="num">Time</th></tr></thead>
+        <tbody>
+          <tr><td>Big Trees Loop</td><td class="num">0.3 mi</td><td class="num">flat, accessible</td><td class="num">20 min</td></tr>
+          <tr><td><strong>Grizzly Giant Loop</strong></td><td class="num">2 mi</td><td class="num">~300 ft</td><td class="num">1.5 hrs</td></tr>
+          <tr><td>Guardians Loop</td><td class="num">6.5 mi</td><td class="num">~1,200 ft</td><td class="num">4–5 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Grizzly Giant Loop is the pick: the Grizzly Giant, the Bachelor and Three Graces, and the California Tunnel Tree. Shaded, at 5,600 ft, and your only giant sequoias this trip.</p>
+  </div>
+</section>
+
+<!-- ============ ALLTRAILS LINKS ============ -->
+<section id="alltrails">
+  <div class="wrap">
+    <p class="sec-label">Trail maps</p>
+    <h2 class="sec">AllTrails links</h2>
+    <p class="lede">Every hike on this trip, one tap away. <strong>Download each map in the AllTrails app while you still have wifi</strong> — they will not load in the Valley, where there is no signal.</p>
+    <h3 class="atsub" style="margin-top:4px;">On your schedule</h3>
+    <div class="atgrid">
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/vernal-fall-foot-bridge-via-john-muir-trail" target="_blank" rel="noopener">
+        <span class="atday">Wed · Vernal Fall</span>
+        <span class="atname">Vernal Fall via John Muir Trail</span>
+        <span class="atstat">5.4 mi RT · ~1,300 ft · strenuous</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/sentinel-dome-trail" target="_blank" rel="noopener">
+        <span class="atday">Tue · Glacier Point Rd</span>
+        <span class="atname">Sentinel Dome</span>
+        <span class="atstat">2.2 mi RT · ~400 ft · moderate</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/sentinel-dome-and-taft-point-loop" target="_blank" rel="noopener">
+        <span class="atday">Tue · Glacier Point Rd</span>
+        <span class="atname">Taft Point &amp; the Fissures</span>
+        <span class="atstat">2.2 mi RT · ~250 ft · moderate</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/mirror-lake-loop--2" target="_blank" rel="noopener">
+        <span class="atday">Thu · Valley</span>
+        <span class="atname">Mirror Lake</span>
+        <span class="atstat">2 mi RT · paved · easy</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/bridalveil-fall-trail" target="_blank" rel="noopener">
+        <span class="atday">Wed · Valley</span>
+        <span class="atname">Bridalveil Fall</span>
+        <span class="atstat">0.5 mi RT · paved · easy</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/grizzly-giant-loop-trail" target="_blank" rel="noopener">
+        <span class="atday">Thu · Mariposa Grove</span>
+        <span class="atname">Grizzly Giant Loop</span>
+        <span class="atstat">2 mi · ~300 ft · easy</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+    </div>
+
+    <h3 class="atsub">Bonus Valley trails, easy to medium</h3>
+    <p class="lede" style="margin-bottom:16px;">Not on the fixed schedule, but all short, fun, and easy to slot into a free hour. The first three are flat and paved; the last three earn you a view for a bit of a climb.</p>
+    <div class="atgrid">
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/cook-s-meadow-trail" target="_blank" rel="noopener">
+        <span class="atday">Valley · flat</span>
+        <span class="atname">Cook's Meadow Loop</span>
+        <span class="atstat">1 mi · ~30 ft · easy</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/sentinel-meadow-cooks-meadow-loop-trail" target="_blank" rel="noopener">
+        <span class="atday">Valley · flat</span>
+        <span class="atname">Sentinel &amp; Cook's Meadow Loop</span>
+        <span class="atstat">2.3 mi · ~50 ft · easy</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/poi/us/california/lower-yosemite-fall" target="_blank" rel="noopener">
+        <span class="atday">Valley · flat</span>
+        <span class="atname">Lower Yosemite Fall Loop</span>
+        <span class="atstat">1 mi · paved · easy · may be dry in Aug</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/inspiration-point-trail" target="_blank" rel="noopener">
+        <span class="atday">Wawona Rd · climb</span>
+        <span class="atname">Inspiration Point</span>
+        <span class="atstat">2.5 mi RT · ~1,000 ft · moderate</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/columbia-rock-trail" target="_blank" rel="noopener">
+        <span class="atday">Valley · climb</span>
+        <span class="atname">Columbia Rock</span>
+        <span class="atstat">2 mi RT · ~1,000 ft · moderate · shaded</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+      <a class="atcard" href="https://www.alltrails.com/trail/us/california/mirror-lake-loop--2" target="_blank" rel="noopener">
+        <span class="atday">Valley · flat-ish</span>
+        <span class="atname">Mirror Lake full loop</span>
+        <span class="atstat">5 mi · ~150 ft · easy · quieter far side</span>
+        <span class="atgo">Open in AllTrails ↗</span>
+      </a>
+    </div>
+    <p class="atnote">The Vernal Fall link covers the trailhead and first section. Past the footbridge, follow the John Muir Trail signs to the Clark Point cutoff — the Mist Trail is closed Monday to Thursday, 7 AM to 3:30 PM. Inspiration Point and Columbia Rock are the two with real climbing; save them for a cooler morning, not the afternoon heat.</p>
+  </div>
+</section>
+
+<!-- ============ PACKING ============ -->
+<section id="pack">
+  <div class="wrap">
+    <p class="sec-label">Gear</p>
+    <h2 class="sec">Packing list</h2>
+    <p class="lede">Specific to an unheated canvas tent cabin. Tick as you go.</p>
+    <ul class="check">
+      <li><input type="checkbox" id="p1"><label for="p1"><strong>Sleeping bag or extra blanket.</strong> Provided bedding is thin.</label></li>
+      <li><input type="checkbox" id="p2"><label for="p2"><strong>Headlamp per person.</strong> Curry Village is genuinely dark.</label></li>
+      <li><input type="checkbox" id="p3"><label for="p3"><strong>Power banks.</strong> Unheated tents have one bulb and no outlets.</label></li>
+      <li><input type="checkbox" id="p4"><label for="p4"><strong>Padlock</strong> for the bear locker</label></li>
+      <li><input type="checkbox" id="p5"><label for="p5"><strong>Shower shoes.</strong> Shared bathhouse, and it is a walk.</label></li>
+      <li><input type="checkbox" id="p6"><label for="p6"><strong>Earplugs.</strong> Canvas is not soundproof.</label></li>
+      <li><input type="checkbox" id="p7"><label for="p7">Water bottles, 2L capacity each</label></li>
+      <li><input type="checkbox" id="p8"><label for="p8">Hiking shoes, not sandals</label></li>
+      <li><input type="checkbox" id="p9"><label for="p9">Sunscreen, hat, sunglasses</label></li>
+      <li><input type="checkbox" id="p10"><label for="p10">Rain layer and one warm layer</label></li>
+      <li><input type="checkbox" id="p11"><label for="p11">Folding wagon if you can get one</label></li>
+      <li><input type="checkbox" id="p12"><label for="p12">Closeable containers for the food locker</label></li>
+      <li><input type="checkbox" id="p13"><label for="p13">Gallon of water for the car</label></li>
+      <li><input type="checkbox" id="p14"><label for="p14">Offline maps downloaded</label></li>
+    </ul>
+    <div class="note">
+      <p><strong>Bear rules are not optional.</strong> No food, drinks, toiletries, or trash in the tent or the car. Everything goes in the bear locker. Fines run up to $5,000 and vehicles used for food storage can be impounded. Cooking is prohibited anywhere in Curry Village.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEATHER ============ -->
+<section id="weather">
+  <div class="wrap">
+    <p class="sec-label">Forecast</p>
+    <h2 class="sec">Weather</h2>
+    <p class="lede">Estimated conditions on the Valley floor at 4,000 ft.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Day</th><th class="num">Est. high</th><th class="num">Est. low</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Mon Aug 3 · arrival</td><td class="num">97–102°F</td><td class="num">~62°F</td><td>Peak heat. Your drive crosses the Central Valley at 105–113°F.</td></tr>
+          <tr><td>Tue Aug 4</td><td class="num">95–100°F</td><td class="num">~60°F</td><td>Last day of the ridge</td></tr>
+          <tr><td>Wed Aug 5</td><td class="num">91–96°F</td><td class="num">~58°F</td><td>Cooling begins</td></tr>
+          <tr><td>Thu Aug 6 · depart</td><td class="num">89–94°F</td><td class="num">~57°F</td><td>Near normal for August</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>Confidence is low.</strong> These are estimates built from the NWS heat outlook plus August climatology, where the normal Valley high is around 89°F. The position of the high-pressure system is still uncertain. Re-check the forecast the night before departure.</p>
+    </div>
+
+    <h3>What the heat changes</h3>
+    <ul>
+      <li>The unheated canvas tent will be miserable from roughly 1 PM to 6 PM. Be in the river or at the pool.</li>
+      <li>Nights in the low 60s are mild, but still bring a sleeping bag. Provided bedding is thin.</li>
+      <li><strong>Check coolant, radiator, and tire pressure before you leave.</strong> The CA-58 Tehachapi grade and the Hwy 41 climb are where cars overheat at 110°F.</li>
+      <li>Carry a gallon of water for the car on top of your drinking water.</li>
+      <li>Consider leaving Lake Arrowhead at 5:30 AM instead of 6:30 to clear Bakersfield and Fresno before the worst.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ BEFORE YOU GO ============ -->
+<section id="verify">
+  <div class="wrap">
+    <p class="sec-label">Do this first</p>
+    <h2 class="sec">Three things to verify</h2>
+    <p class="lede">Any one of these can derail the trip. Sort them before you pack.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="n">01</span>
+        <h4>Is Curry Village actually booked?</h4>
+        <p>August is peak season. Call <strong>(888) 413-8869</strong> and confirm you have a confirmation number, not a browsing session. Backups: Housekeeping Camp, Yosemite Valley Lodge, or outside the park in El Portal, Midpines, Mariposa, or Oakhurst.</p>
+      </div>
+      <div class="card">
+        <span class="n">02</span>
+        <h4>Confirm the bed configuration</h4>
+        <p>Tent cabins come as 1 double, or 1 double + 1 single, or 1 double + 3 singles. <strong>Roll-away beds and cribs are not available.</strong> Three people in a two-bed unit means someone shares a double. Make sure the third person is on the reservation.</p>
+      </div>
+      <div class="card">
+        <span class="n">03</span>
+        <h4>The Mist Trail is closed on your weekdays</h4>
+        <p>Trail repairs run July 27 through October. The section above the Vernal Fall footbridge is closed Monday through Thursday, 7:00 AM to 3:30 PM. There is a workaround, see below.</p>
+      </div>
+    </div>
+    <div class="note">
+      <p>Deposit is 100% of the first night at booking, and cancellations need 7 or more days notice. At this point, treat the booking as non-refundable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUDGET ============ -->
+<section id="budget">
+  <div class="wrap">
+    <p class="sec-label">Money</p>
+    <h2 class="sec">What it costs</h2>
+
+    <h3>Lodging: unheated canvas tent cabin, 3 nights</h3>
+    <p>Taxes total 13.7% (12% occupancy, 1.5% TBID, 0.2% CA tourism). Third person is $17.50 per night plus tax, ages 13 and up.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th></th><th class="num">Low</th><th class="num">Likely</th><th class="num">High</th></tr></thead>
+        <tbody>
+          <tr><td>Nightly rate</td><td class="num">$160</td><td class="num">$190</td><td class="num">$215</td></tr>
+          <tr><td>3 nights</td><td class="num">$480</td><td class="num">$570</td><td class="num">$645</td></tr>
+          <tr><td>3rd person</td><td class="num">$53</td><td class="num">$53</td><td class="num">$53</td></tr>
+          <tr><td>Taxes</td><td class="num">$73</td><td class="num">$85</td><td class="num">$96</td></tr>
+          <tr class="total"><td>Total</td><td class="num">$606</td><td class="num">$708</td><td class="num">$794</td></tr>
+          <tr class="total"><td>Per person</td><td class="num">$202</td><td class="num">$236</td><td class="num">$265</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Gas</h3>
+    <p>About 350 miles each way plus 60 to 100 miles of in-park driving. Budget 780 miles. California is running around $5.50 a gallon.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Vehicle</th><th class="num">Gallons</th><th class="num">Cost</th><th class="num">Per person</th></tr></thead>
+        <tbody>
+          <tr><td>20 mpg</td><td class="num">39</td><td class="num">$215</td><td class="num">$72</td></tr>
+          <tr><td>25 mpg</td><td class="num">31</td><td class="num">$172</td><td class="num">$57</td></tr>
+          <tr><td>30 mpg</td><td class="num">26</td><td class="num">$143</td><td class="num">$48</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p><strong>There is no gas station in Yosemite Valley.</strong> Last affordable fuel is Oakhurst. In-park gas at Wawona or Crane Flat runs well above the state average.</p>
+    </div>
+
+    <h3>Everything else</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Item</th><th class="num">Total</th><th class="num">Per person</th></tr></thead>
+        <tbody>
+          <tr><td>Park entrance, $35 per vehicle, good 7 days</td><td class="num">$35</td><td class="num">$12</td></tr>
+          <tr><td>Food, 3.5 days</td><td class="num">$420–$790</td><td class="num">$140–$265</td></tr>
+          <tr><td>Showers, bike rental, souvenirs</td><td class="num">$75–$150</td><td class="num">$25–$50</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Bottom line</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Scenario</th><th class="num">Per person</th></tr></thead>
+        <tbody>
+          <tr><td>Budget: groceries plus one bought meal a day</td><td class="num">~$425</td></tr>
+          <tr><td>Moderate</td><td class="num">~$550</td></tr>
+          <tr><td>Comfortable</td><td class="num">~$660</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note pine">
+      <p><strong>Cooking is prohibited anywhere in Curry Village.</strong> Stop at a supermarket in Fresno on the drive up for breakfast items, sandwich supplies, snacks, and water. Cold food only. This is the single biggest saver on the trip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMERGENCY ============ -->
+<section id="emergency" class="emsec">
+  <div class="wrap">
+    <p class="sec-label" style="color:#E8A398;">If something goes wrong</p>
+    <h2 class="sec" style="color:var(--routed);">Emergency</h2>
+    <p class="lede" style="color:#D9CFC6;">Cell service in the Valley is patchy to nonexistent. When you have a signal, <strong style="color:#fff;">911 texts often get through where calls fail.</strong> Screenshot this section before you lose service.</p>
+
+    <div class="em911">
+      <div class="em911-big">
+        <span class="lbl">Life-threatening emergency</span>
+        <span class="num">Call or TEXT 911</span>
+        <span class="sub">Medical, fire, search &amp; rescue, or crime. Tell dispatch you are in Yosemite Valley and give your nearest landmark or shuttle stop number.</span>
+      </div>
+    </div>
+
+    <div class="emgrid">
+      <div class="emcard">
+        <span class="et">Park dispatch (non-emergency)</span>
+        <a class="ep" href="tel:+12093791992">(209) 379-1992</a>
+        <span class="ed">Rangers, lost persons, wildlife problems, anything urgent that isn't 911.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Yosemite Medical Clinic</span>
+        <a class="ep" href="tel:+12093724637">(209) 372-4637</a>
+        <span class="ed">In Yosemite Valley, 9000 Ahwahnee Dr, between Yosemite Village and The Ahwahnee. Urgent care walk-ins, roughly weekday afternoons only. Not an ER. Out-of-state insurance = pay out of pocket. Call to confirm today's hours.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Curry Village front desk</span>
+        <a class="ep" href="tel:+12093728333">(209) 372-8333</a>
+        <span class="ed">Staffed 24 hours. First stop for a house phone, a lockout, or help reaching a ranger. From a tent, dial x8333.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">24-hour roadside assistance</span>
+        <a class="ep" href="tel:+12093721060">(209) 372-1060</a>
+        <span class="ed">Yosemite Village Garage. Dead battery, flat, lockout. Given the heat and the mountain grades, keep this one handy.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Park main line</span>
+        <a class="ep" href="tel:+12093720200">(209) 372-0200</a>
+        <span class="ed">General info and recorded conditions (press 1, then 1 for roads and weather).</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Poison control (national)</span>
+        <a class="ep" href="tel:+18002221222">1-800-222-1222</a>
+        <span class="ed">24/7. Snakebite, bad reaction, accidental ingestion.</span>
+      </div>
+    </div>
+
+    <h3 style="color:var(--routed);">Nearest hospitals with an ER</h3>
+    <p style="color:#D9CFC6;">The clinic in the Valley is <strong style="color:#fff;">not an emergency room.</strong> For anything serious, 911 dispatch will arrange transport and ask your hospital preference. All of these are 2 to 3+ hours away, so mountain response times are long. This is why you turn back early on a hike if someone is struggling.</p>
+    <div class="tw">
+      <table class="emtable">
+        <thead><tr><th>Hospital</th><th>Where</th><th class="num">Drive from Valley</th><th>Directions</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Community Regional Medical Center<br><span class="tdsub">Level I trauma, UCSF-Fresno</span></td>
+            <td>Fresno</td>
+            <td class="num">~2.5 hrs</td>
+            <td><a href="https://maps.apple.com/?daddr=Community+Regional+Medical+Center+Fresno&dirflg=d" target="_blank" rel="noopener">Apple</a> &middot; <a href="https://www.google.com/maps/dir/?api=1&destination=Community+Regional+Medical+Center+Fresno+CA" target="_blank" rel="noopener">Google</a></td>
+          </tr>
+          <tr>
+            <td>Saint Agnes Medical Center</td>
+            <td>Fresno</td>
+            <td class="num">~2.5 hrs</td>
+            <td><a href="https://maps.apple.com/?daddr=Saint+Agnes+Medical+Center+Fresno&dirflg=d" target="_blank" rel="noopener">Apple</a> &middot; <a href="https://www.google.com/maps/dir/?api=1&destination=Saint+Agnes+Medical+Center+Fresno+CA" target="_blank" rel="noopener">Google</a></td>
+          </tr>
+          <tr>
+            <td>Doctors Medical Center</td>
+            <td>Modesto</td>
+            <td class="num">~2.5 hrs</td>
+            <td><a href="https://maps.apple.com/?daddr=Doctors+Medical+Center+Modesto&dirflg=d" target="_blank" rel="noopener">Apple</a> &middot; <a href="https://www.google.com/maps/dir/?api=1&destination=Doctors+Medical+Center+Modesto+CA" target="_blank" rel="noopener">Google</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="color:var(--routed);">On the drive: Oakhurst has closer care</h3>
+    <p style="color:#D9CFC6;">Coming or going on Hwy 41, Oakhurst is about an hour from the Valley and has walk-in urgent care plus a small hospital nearby in Mariposa. For a sprain or a bad cut on the way home, this beats driving all the way to Fresno.</p>
+    <div class="emgrid">
+      <div class="emcard">
+        <span class="et">Oakhurst Urgent Care</span>
+        <a class="ep" href="tel:+15596832117">(559) 683-2117</a>
+        <span class="ed">48677 Victoria Ln, Oakhurst. Weekday daytime hours. Call first.</span>
+      </div>
+      <div class="emcard">
+        <span class="et">Mountain Crisis Services</span>
+        <a class="ep" href="tel:+18889662350">1-888-966-2350</a>
+        <span class="ed">24-hour, free, confidential. Support and transport for anyone in crisis.</span>
+      </div>
+    </div>
+
+    <div class="emplan">
+      <h3 style="color:var(--routed);margin-top:0;">Before you lose signal</h3>
+      <ul>
+        <li>Text one person back home your daily plan each morning. If you go quiet past a set time, they know roughly where to send help.</li>
+        <li>On any hike, agree on a turnaround time and honor it. Rescue from the Vernal Fall trail is slow and expensive.</li>
+        <li>In this heat, heat exhaustion is the likeliest problem: dizziness, nausea, headache, cramps. Get in shade, sip water, cool the neck and wrists. If someone stops sweating, gets confused, or passes out, that's heat stroke — <strong style="color:#fff;">call 911 immediately.</strong></li>
+        <li>Save these numbers to your phone now, and to the phones of both girls, while you still have service at home.</li>
+        <li>Note your tent cabin number and your parking area at check-in. You'll need them to direct anyone to you.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer id="info">
+  <div class="wrap">
+    <p class="colophon">
+      Compiled July 27, 2026. Prices, hours, and closures change without notice.<br>
+      Temperature figures are estimates, not a published forecast. Trailhead coordinates are approximate. Verify anything time-sensitive before you leave.
+    </p>
+  </div>
+</footer>
+
+
+</body>
+</html>

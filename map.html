@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yosemite Trip Map · August 2–6, 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sign:#4A3728;
+    --sign-deep:#33261B;
+    --routed:#F2EDE4;
+    --granite:#8C8B86;
+    --granite-pale:#D8D5CE;
+    --pine:#2E4237;
+    --merced:#3F6E6C;
+    --ember:#B4552A;
+    --alarm:#8C1D18;
+    --rule:rgba(242,237,228,.18);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;}
+  body{
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    background:var(--sign-deep);
+    color:var(--routed);
+    -webkit-font-smoothing:antialiased;
+  }
+  .shell{display:flex;flex-direction:column;height:100%;}
+
+  /* ---- routed sign header ---- */
+  header{
+    background:var(--sign);
+    border-bottom:3px solid var(--sign-deep);
+    padding:14px 20px 12px;
+    flex:0 0 auto;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--granite-pale);margin:0 0 4px;
+  }
+  h1{
+    font-family:"Zilla Slab",Georgia,serif;
+    font-weight:700;font-size:clamp(20px,3.4vw,30px);
+    letter-spacing:.01em;margin:0;
+    text-shadow:0 1px 0 rgba(0,0,0,.35);
+  }
+  .advisory{
+    margin-top:10px;padding:8px 12px;
+    background:rgba(140,29,24,.9);
+    border-left:4px solid var(--ember);
+    font-size:13px;line-height:1.45;
+  }
+  .advisory strong{font-weight:600;}
+
+  /* ---- body split ---- */
+  .split{display:flex;flex:1 1 auto;min-height:0;}
+  #map{flex:1 1 auto;min-height:0;background:var(--granite);}
+  aside{
+    flex:0 0 330px;overflow-y:auto;
+    background:var(--sign-deep);
+    border-left:1px solid var(--rule);
+  }
+
+  .legend{padding:14px 18px;border-bottom:1px solid var(--rule);}
+  .legend h2{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--granite-pale);font-weight:500;margin:0 0 10px;
+  }
+  .band{display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12.5px;}
+  .chip{width:13px;height:13px;border-radius:50%;flex:0 0 auto;border:1.5px solid rgba(0,0,0,.4);}
+  .band .ft{font-family:"IBM Plex Mono",monospace;color:var(--granite-pale);}
+
+  .daygroup{border-bottom:1px solid var(--rule);}
+  .dayhead{
+    display:flex;justify-content:space-between;align-items:baseline;gap:8px;
+    padding:12px 18px 6px;
+  }
+  .dayhead .d{
+    font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:15px;
+  }
+  .dayhead .t{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--granite);
+  }
+  .stop{
+    width:100%;text-align:left;display:block;
+    background:none;border:0;border-left:3px solid transparent;
+    padding:9px 18px 11px;cursor:pointer;color:inherit;font:inherit;
+    transition:background .12s ease,border-color .12s ease;
+  }
+  .stop:hover,.stop:focus-visible{background:rgba(242,237,228,.06);border-left-color:var(--ember);}
+  .stop:focus-visible{outline:2px solid var(--routed);outline-offset:-2px;}
+  .stop .row{display:flex;align-items:baseline;gap:8px;}
+  .stop .nm{font-weight:600;font-size:14px;line-height:1.3;}
+  .stop .meta{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--granite);
+    margin-top:3px;
+  }
+  .stop .nt{font-size:12px;line-height:1.45;color:var(--granite-pale);margin-top:5px;}
+
+  footer{
+    padding:14px 18px 22px;font-size:11.5px;line-height:1.5;color:var(--granite);
+  }
+  footer a{color:var(--granite-pale);}
+
+  /* ---- leaflet overrides ---- */
+  .leaflet-popup-content-wrapper{
+    background:var(--sign);color:var(--routed);border-radius:2px;
+  }
+  .leaflet-popup-tip{background:var(--sign);}
+  .leaflet-popup-content{margin:12px 14px;font-size:13px;line-height:1.5;}
+  .leaflet-popup-content b{
+    font-family:"Zilla Slab",Georgia,serif;font-size:15px;display:block;margin-bottom:2px;
+  }
+  .leaflet-popup-content .pm{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--granite-pale);
+    display:block;margin-bottom:6px;
+  }
+  .leaflet-popup-content a{color:#EBC9A8;}
+  .leaflet-container a.leaflet-popup-close-button{color:var(--granite-pale);}
+  .pin{
+    border-radius:50%;border:2px solid var(--sign-deep);
+    box-shadow:0 1px 4px rgba(0,0,0,.5);
+  }
+
+  @media (max-width:820px){
+    .split{flex-direction:column;}
+    #map{flex:0 0 52vh;}
+    aside{flex:1 1 auto;border-left:0;border-top:1px solid var(--rule);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <p class="eyebrow">Yosemite National Park · 4 nights, Curry Village</p>
+    <h1>Trip Map — August 2 to 6, 2026</h1>
+    <div class="advisory">
+      <strong>Heat advisory.</strong> NWS forecasts extreme heat in the Central Valley Aug 1–2 and moderate extreme-heat risk in the Sierra Nevada Aug 1–4. Hike at dawn, gain elevation, get in the river by 1 PM. Re-check weather.gov before departure.
+    </div>
+  </header>
+
+  <div class="split">
+    <div id="map" role="application" aria-label="Map of trip stops"></div>
+    <aside>
+      <div class="legend">
+        <h2>Elevation = heat relief</h2>
+        <div class="band"><span class="chip" style="background:#B4552A"></span><span class="ft">2,300–4,400 ft</span> Valley floor, hottest</div>
+        <div class="band"><span class="chip" style="background:#3F6E6C"></span><span class="ft">4,400–5,600 ft</span> Shaded, water access</div>
+        <div class="band"><span class="chip" style="background:#2E4237"></span><span class="ft">5,600 ft +</span> 10–15°F cooler</div>
+        <div class="band"><span class="chip" style="background:#8C1D18"></span><span class="ft">Logistics</span> Gas, gate, home</div>
+      </div>
+      <div id="list"></div>
+      <footer>
+        Road and trail status: <a href="https://www.nps.gov/yose/planyourvisit/conditions.htm">nps.gov conditions</a> · recorded line 209-372-0200 (press 1, then 1)<br>
+        Live parking and traffic: text <b>ynptraffic</b> to 333111<br>
+        Curry Village front desk: 209-372-8333
+      </footer>
+    </aside>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const STOPS = [
+  {d:"Sun Aug 2", t:"Arrival", n:"Tunnel View",                          lat:37.7157987, lon:-119.6774827, ft:4400, tm:"3:00 PM",  c:"#B4552A", note:"First look at the Valley, right after the Wawona Tunnel. Parking on both sides of Hwy 41."},
+  {d:"Sun Aug 2", t:"Arrival", n:"Curry Village",                        lat:37.7384615, lon:-119.5748224, ft:4000, tm:"3:30 PM",  c:"#B4552A", note:"Check-in 4:00 PM sharp, expect a line. Park once and leave the car. Everything scented goes in the bear locker."},
+  {d:"Mon Aug 3", t:"Vernal Fall", n:"Happy Isles Trailhead",            lat:37.7326,    lon:-119.5583,    ft:4000, tm:"6:00 AM",  c:"#B4552A", note:"Shuttle stop #16. Mist Trail above the footbridge is closed Mon–Thu 7:00 AM to 3:30 PM, so take the John Muir Trail up."},
+  {d:"Mon Aug 3", t:"Vernal Fall", n:"Top of Vernal Fall",               lat:37.7273,    lon:-119.5433,    ft:5000, tm:"8:00 AM",  c:"#3F6E6C", note:"Via JMT and the Clark Point cutoff: 5.4 mi round trip, ~1,300 ft. Carry 2 liters each. Do not cross the railings."},
+  {d:"Mon Aug 3", t:"Vernal Fall", n:"Swinging Bridge Picnic Area",      lat:37.7364018, lon:-119.5993836, ft:3950, tm:"1:00 PM",  c:"#3F6E6C", note:"Shade, tables, grills, easy Merced River access. This is where you sit out the afternoon heat."},
+  {d:"Tue Aug 4", t:"High country", n:"Glacier Point",                   lat:37.7281509, lon:-119.5734999, ft:7214, tm:"8:30 AM",  c:"#2E4237", note:"60 mi round trip from Curry. Lot fills by mid-morning. No drinking water here, bring your own."},
+  {d:"Tue Aug 4", t:"High country", n:"Sentinel Dome & Taft Point TH",   lat:37.7126007, lon:-119.5863257, ft:7700, tm:"11:00 AM", c:"#2E4237", note:"Two easy hikes from one trailhead, 2.2 mi round trip each. Taft Point has unrailed fissures, keep everyone back from the edge."},
+  {d:"Wed Aug 5", t:"Valley classics", n:"Mirror Lake",                  lat:37.7477377, lon:-119.5494208, ft:4100, tm:"7:30 AM",  c:"#3F6E6C", note:"2 mi round trip paved, mostly shaded along Tenaya Creek. Shallow pools by August, but the Half Dome view straight up is the best anywhere."},
+  {d:"Wed Aug 5", t:"Valley classics", n:"Yosemite Valley Welcome Center",lat:37.7485922,lon:-119.587361,  ft:4000, tm:"10:00 AM", c:"#B4552A", note:"Open 9–5. Confirm the Mist Trail closure and grab the current Yosemite Guide for ranger program times."},
+  {d:"Wed Aug 5", t:"Valley classics", n:"Bridalveil Fall",              lat:37.716669,  lon:-119.6463888, ft:4000, tm:"5:00 PM",  c:"#3F6E6C", note:"0.5 mi round trip, paved. Still flowing in August, unlike Yosemite Falls which is usually dry by now."},
+  {d:"Thu Aug 6", t:"Homeward", n:"Wawona Swinging Bridge",              lat:37.5433646, lon:-119.6286207, ft:4000, tm:"12:15 PM", c:"#3F6E6C", note:"Half mile flat walk to a swimming hole on the South Fork Merced. Bring flip flops. Good lunch stop."},
+  {d:"Thu Aug 6", t:"Homeward", n:"Mariposa Grove Welcome Plaza",        lat:37.5066944, lon:-119.6300274, ft:5100, tm:"1:30 PM",  c:"#2E4237", note:"Park and take the free shuttle. Grizzly Giant Loop, 2 mi and 300 ft, shaded. Your only giant sequoias this trip."},
+  {d:"Both ways", t:"Logistics", n:"South Entrance Station",             lat:37.5108,    lon:-119.6494,    ft:5120, tm:"—",        c:"#8C1D18", note:"$35 per vehicle, good 7 days. Card only. Pre-buy on Recreation.gov. Waits of 30 to 90 minutes are normal in August."},
+  {d:"Both ways", t:"Logistics", n:"Oakhurst, CA",                       lat:37.3277,    lon:-119.6482,    ft:2300, tm:"—",        c:"#8C1D18", note:"Last affordable fuel. There is no gas station in Yosemite Valley. Fill up here in both directions."},
+  {d:"Both ways", t:"Logistics", n:"Lake Arrowhead, CA",                 lat:34.2483,    lon:-117.1897,    ft:5100, tm:"6:30 AM",  c:"#8C1D18", note:"~350 mi each way, about 6.5 hrs of driving. CA-18 → I-15 N → US-395 N → CA-58 W → CA-99 N → CA-41 N."}
+];
+
+const map = L.map('map', {scrollWheelZoom:true}).setView([37.72, -119.60], 11);
+
+L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+  maxZoom: 17,
+  attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)'
+}).addTo(map);
+
+const markers = {};
+
+STOPS.forEach((s, i) => {
+  const r = s.ft >= 5600 ? 9 : 8;
+  const m = L.circleMarker([s.lat, s.lon], {
+    radius: r, fillColor: s.c, color: '#33261B',
+    weight: 2, opacity: 1, fillOpacity: .95, className: 'pin'
+  }).addTo(map);
+
+  const gmaps = `https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lon}`;
+  m.bindPopup(
+    `<b>${s.n}</b>` +
+    `<span class="pm">${s.d} · ${s.tm} · ${s.ft.toLocaleString()} ft</span>` +
+    `${s.note}<br><br><a href="${gmaps}" target="_blank" rel="noopener">Open in Google Maps →</a>`
+  );
+  markers[i] = m;
+});
+
+// Build the sidebar, grouped by day
+const list = document.getElementById('list');
+let currentDay = null, group = null;
+
+STOPS.forEach((s, i) => {
+  if (s.d !== currentDay) {
+    currentDay = s.d;
+    group = document.createElement('section');
+    group.className = 'daygroup';
+    const h = document.createElement('div');
+    h.className = 'dayhead';
+    h.innerHTML = `<span class="d">${s.d}</span><span class="t">${s.t}</span>`;
+    group.appendChild(h);
+    list.appendChild(group);
+  }
+  const b = document.createElement('button');
+  b.className = 'stop';
+  b.type = 'button';
+  b.innerHTML =
+    `<span class="row"><span class="chip" style="background:${s.c}"></span>` +
+    `<span class="nm">${s.n}</span></span>` +
+    `<span class="meta">${s.tm} · ${s.ft.toLocaleString()} ft</span>` +
+    `<span class="nt">${s.note}</span>`;
+  b.addEventListener('click', () => {
+    map.setView([s.lat, s.lon], 14);
+    markers[i].openPopup();
+  });
+  group.appendChild(b);
+});
+
+// Fit to the in-park stops, ignoring Lake Arrowhead so the Valley stays readable
+const inPark = STOPS.filter(s => s.n !== 'Lake Arrowhead, CA').map(s => [s.lat, s.lon]);
+map.fitBounds(L.latLngBounds(inPark).pad(0.12));
+</script>
+</body>
+</html>
